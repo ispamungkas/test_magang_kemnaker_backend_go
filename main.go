@@ -35,13 +35,9 @@ func main() {
 	log.Printf("postgres://%s:%s@%s:%v/%s?sslmode=disable\n",
 		user, passwd, host, port, name)
 
-	dbargs := fmt.Sprintf(
-		"postgres://%s:%s@%s:%v/%s?sslmode=disable",
-		user, passwd, host, port, name)
+	utils.InitDB("postgresql://postgres:fHrONrgVwzmWRGWDTNBwsRLaOOgZjknM@gondola.proxy.rlwy.net:46912/railway")
 
-	utils.InitDB(dbargs)
-
-	db, dbErr := sql.Open("postgres", dbargs)
+	db, dbErr := sql.Open("postgres", "postgresql://postgres:fHrONrgVwzmWRGWDTNBwsRLaOOgZjknM@gondola.proxy.rlwy.net:46912/railway")
 	if dbErr != nil {
 		log.Fatalf("Error connecting db: %v", dbErr)
 	}
