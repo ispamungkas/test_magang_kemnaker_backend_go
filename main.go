@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -18,7 +17,7 @@ import (
 
 func main() {
 
-	// Initialize Database
+	// Dev
 	
 	// Database configuration
 	// 1.) user
@@ -27,14 +26,16 @@ func main() {
 	// 4.) port
 	// 5.) database name
 
-	user := os.Getenv("DB_USER")
-	passwd := os.Getenv("DB_PASSWORD")
-	host := os.Getenv("HOST")
-	port := os.Getenv("DB_PORT")
-	name := os.Getenv("DB_NAME")
-	log.Printf("postgres://%s:%s@%s:%v/%s?sslmode=disable\n",
-		user, passwd, host, port, name)
+	// user := os.Getenv("DB_USER")
+	// passwd := os.Getenv("DB_PASSWORD")
+	// host := os.Getenv("HOST")
+	// port := os.Getenv("DB_PORT")
+	// name := os.Getenv("DB_NAME")
+	// log.Printf("postgres://%s:%s@%s:%v/%s?sslmode=disable\n",
+	// 	user, passwd, host, port, name)
 
+
+	// Initialize Database
 	utils.InitDB("postgresql://postgres:fHrONrgVwzmWRGWDTNBwsRLaOOgZjknM@gondola.proxy.rlwy.net:46912/railway")
 
 	db, dbErr := sql.Open("postgres", "postgresql://postgres:fHrONrgVwzmWRGWDTNBwsRLaOOgZjknM@gondola.proxy.rlwy.net:46912/railway")
